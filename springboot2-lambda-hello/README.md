@@ -6,9 +6,10 @@ The starter project defines a simple `/ping` resource that can accept `GET` requ
 The project folder also includes a `template.yml` file and serverless.yml. You can use this [SAM CLI](https://github.com/awslabs/aws-sam-cli) to test locally using `sam local start-api`. To deploy, use this [SERVERLESS CLI](https://github.com/serverless/serverless) using `sls deploy`. 
 
 ## Pre-requisites
-* [AWS CLI](https://aws.amazon.com/cli/)
-* [SAM CLI](https://github.com/awslabs/aws-sam-cli)
-* [Maven](https://maven.apache.org/)
+- [AWS CLI](https://aws.amazon.com/cli/)
+- [SAM CLI](https://github.com/awslabs/aws-sam-cli)
+- [SERVERLESS CLI](https://github.com/serverless/serverless)
+- [Maven](https://maven.apache.org/)
 
 ## Building the project
 You can use the Maven to generate and package the project
@@ -24,10 +25,6 @@ From the project root folder - where the `template.yml` file is located - start 
 
 ```bash
 $ sam local start-api
-
-...
-Mounting com.amazonaws.serverless.archetypes.StreamLambdaHandler::handleRequest (java8) at http://127.0.0.1:3000/{proxy+} [OPTIONS GET HEAD POST PUT DELETE PATCH]
-...
 ```
 
 Using a new shell, you can send a test ping request to your API:
@@ -76,6 +73,8 @@ $ curl -s https://xxxxxxx.execute-api.xxxxxxxxx.amazonaws.com/dev/ping
 }
 ```
 
-# Some reasons why I have SAM and SLS
+# Reasons why I have SAM and SLS
 
-SAM CLI makes it really easy to test locally using `sam local start-api`. The previous command will spin up a local version of the API Gateway and start a container that will run your lambda code. However, I prefer the ease of Serverless Framework for deploying as I don't have to deal with CloudFormation templates that much, and I can easily deploy to multiple environments. Plus, there are tons of plugins in the Serverless Framework ecosystem that expedite the development process.  
+- SAM CLI makes it really easy to test locally using `sam local start-api`. The previous command will spin up a local version of the API Gateway and start a container that will run your lambda code. 
+- However, I prefer the ease of Serverless Framework for deploying as I don't have to deal with CloudFormation templates that much, and I can easily deploy to multiple environments. 
+- Plus, Serverless Framework there are tons of plugins in the Serverless Framework ecosystem that expedite the development process.  
