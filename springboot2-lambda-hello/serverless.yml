@@ -1,0 +1,27 @@
+service: springboot2-lambda-hello
+
+provider:
+  name: aws
+  runtime: java8
+  memorySize: 3008
+  timeout: 60
+  stage: ${opt:stage,'dev'}
+  region: ${opt:region, 'us-east-1'}
+  profile: ${opt:profile, "default"}
+  endpointType: REGIONAL
+
+resources:
+  Description: Hello App written with SpringBoot 2 with the aws-serverless-java-container library
+
+package:
+  individually: true
+
+functions:
+  SpringBootPetStoreApi:
+    package: 
+      artifact: target/springboot2-lambda-hello-1.0-SNAPSHOT-lambda-package.zip
+    handler: net.thespblog.refapp.StreamLambdaHandler::handleRequest
+    events:
+      - http:
+          path: /{proxy+}
+          method: ANY

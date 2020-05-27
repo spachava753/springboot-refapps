@@ -1,0 +1,9 @@
+version = 0.1
+[default]
+[default.deploy]
+[default.deploy.parameters]
+stack_name = "springboot2-lambda-hello"
+s3_bucket = "aws-sam-cli-managed-default-samclisourcebucket-1nbbyr2s9adze"
+s3_prefix = "springboot2-lambda-hello"
+region = "us-east-1"
+capabilities = "CAPABILITY_IAM"
